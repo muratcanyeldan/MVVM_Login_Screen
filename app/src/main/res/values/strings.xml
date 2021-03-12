@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">MVVM_Login_Screen</string>
+    <string name="login_button_text">Login</string>
+    <string name="register_button_text">Register</string>
+    <string name="log_out_button_text">Log Out</string>
+    <string name="username_text">Email</string>
+    <string name="password_text">Password</string>
+    <string name="signed_in_user">Signed in user: </string>
+    <string name="logged_out_user">User Logged Out</string>
+    <string name="email_not_valid">Email is not valid</string>
+    <string name="password_empty">Password field can not be empty</string>
+
+</resources>

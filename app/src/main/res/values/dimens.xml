@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="edit_text_height">60dp</dimen>
+    <dimen name="edit_text_width">260dp</dimen>
+    <dimen name="edit_text_upper_margin">50dp</dimen>
+    <dimen name="button_upper_margin">100dp</dimen>
+    <dimen name="button_end_margin">60dp</dimen>
+    <dimen name="text_upper_margin">60dp</dimen>
+    <dimen name="text_start_margin">60dp</dimen>
+    <dimen name="text_width">250dp</dimen>
+
+</resources>
