@@ -5,7 +5,6 @@ import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import com.google.gson.Gson
-import com.muratcanapps.mvvm_login_screen.model.SignInWithEmailError
 import com.muratcanapps.mvvm_login_screen.model.SignInWithEmailRequest
 import com.muratcanapps.mvvm_login_screen.model.SignInWithEmailResponse
 import com.muratcanapps.mvvm_login_screen.network.LoginService
@@ -53,9 +52,12 @@ class LoginScreenViewModel(application: Application) : AndroidViewModel(applicat
                 } else {
                     transmitResponseToView(false,"Email or Password Wrong")
 
+                    /*
                     val gsonVal = Gson().toJson(response.errorBody())
                     val deGsonVal = Gson().fromJson(gsonVal, SignInWithEmailError::class.java)
                     Log.d("responseBu", deGsonVal.message)
+                    
+                     */
 
 
                 }
