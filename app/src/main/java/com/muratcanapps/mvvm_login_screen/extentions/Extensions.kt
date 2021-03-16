@@ -15,7 +15,6 @@ fun Context.mainExecutor(): Executor {
 */
 fun Any?.isNull() = this == null
 
-
 fun String.isEmailFormatValid(): Boolean {
     val expression = "^[\\w.-]+@([\\w\\-]+\\.)+[A-Z]{2,8}$"
     val pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE)

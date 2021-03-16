@@ -1,16 +1,15 @@
 package com.muratcanapps.mvvm_login_screen.viewmodel
 
 import android.app.Application
-import android.content.Context
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
-import com.muratcanapps.mvvm_login_screen.extentions.toast
+import com.google.gson.Gson
 import com.muratcanapps.mvvm_login_screen.model.SignInWithEmailRequest
 import com.muratcanapps.mvvm_login_screen.model.SignInWithEmailResponse
 import com.muratcanapps.mvvm_login_screen.network.LoginService
 import com.muratcanapps.mvvm_login_screen.network.ServiceGenerator
 import com.muratcanapps.mvvm_login_screen.utils.isEmailValid
-import com.muratcanapps.mvvm_login_screen.utils.isOnline
 import com.muratcanapps.mvvm_login_screen.utils.isPasswordValid
 import retrofit2.Call
 import retrofit2.Callback
@@ -19,46 +18,61 @@ import retrofit2.Response
 
 class LoginScreenViewModel(application: Application) : AndroidViewModel(application) {
     val loginSuccessLiveData: MutableLiveData<Boolean> = MutableLiveData()
+    val loginErrorLiveData: MutableLiveData<String> = MutableLiveData()
+    val loadingLiveData: MutableLiveData<Boolean> = MutableLiveData()
 
-    fun showMessage(context: Context, success: Boolean) {
-        if (success) {
-            context.toast("Login Successful")
+    fun login(email: String, password: String) {
+        setLoadingStatus(true)
+        if (isEmailValid(email) && isPasswordValid(password)) {
+            loginAuth(email, password)
         } else {
-            context.toast("Login Failed")
+            setLoadingStatus(false)
+            transmitResponseToView(false,"Email or Password Format Invalid")
         }
     }
 
-    fun login(context: Context, email: String, password: String) {
-        if (isOnline(context)) {
-            if (isEmailValid(email) && isPasswordValid(password)) {
-                loginAuth(context, email, password)
-            } else {
-                loginSuccessLiveData.postValue(false)
-            }
-        } else {
-            loginSuccessLiveData.postValue(false)
-        }
-    }
-
-    private fun loginAuth(context: Context, username: String, password: String) {
+    fun loginAuth(username: String, password: String) {
 
         val loginService =
             ServiceGenerator.createService(LoginService::class.java, username, password)
-        val call: Call<SignInWithEmailResponse> =
+        val call: Call<Any> =
             loginService.loginWithEmail(SignInWithEmailRequest(username, password))
 
-        call.enqueue(object : Callback<SignInWithEmailResponse> {
+        call.enqueue(object : Callback<Any> {
             override fun onResponse(
-                call: Call<SignInWithEmailResponse>,
-                response: Response<SignInWithEmailResponse?>
+                call: Call<Any>,
+                response: Response<Any?>
             ) {
-                loginSuccessLiveData.postValue(response.isSuccessful)
 
+                if (response.isSuccessful) {
+                    transmitResponseToView(true)
+                    val successfulResponseGson = Gson().toJson(response.body())
+                    val successfulResponse = Gson().fromJson(successfulResponseGson, SignInWithEmailResponse::class.java)
+                    Log.d("responseBu", successfulResponse.toString())
+                } else {
+                    transmitResponseToView(false,"Email or Password Wrong")
+                    /*
+                    val gsonVal = Gson().toJson(response.errorBody())
+                    val deGsonVal = Gson().fromJson(gsonVal, SignInWithEmailError::class.java)
+                    Log.d("responseBu", deGsonVal.message)
+
+                     */
+                }
             }
-
-            override fun onFailure(call: Call<SignInWithEmailResponse>, t: Throwable) {
-                context.toast("Error " + t.localizedMessage)
+            // email hatası , password hatası
+            override fun onFailure(call: Call<Any>, t: Throwable) {
+                transmitResponseToView(false, "API endpoint can't be reached")
             }
         })
+        setLoadingStatus(false)
+    }
+
+    private fun transmitResponseToView(status:Boolean, message:String = ""){
+        loginErrorLiveData.postValue(message)
+        loginSuccessLiveData.postValue(status)
+    }
+
+    private fun setLoadingStatus(status: Boolean){
+        loadingLiveData.postValue(status)
     }
 }

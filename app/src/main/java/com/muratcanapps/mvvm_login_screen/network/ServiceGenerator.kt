@@ -14,7 +14,7 @@ object ServiceGenerator {
         .baseUrl(Constants.BASE_URL)
         .addConverterFactory(GsonConverterFactory.create())
 
-    private var retrofit: Retrofit = builder.build()
+    var retrofit: Retrofit = builder.build()
 
     fun <S> createService(
         serviceClass: Class<S>, email: String, password: String

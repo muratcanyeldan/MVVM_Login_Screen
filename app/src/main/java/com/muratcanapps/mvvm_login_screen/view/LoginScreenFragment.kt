@@ -4,14 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.muratcanapps.mvvm_login_screen.R
 import com.muratcanapps.mvvm_login_screen.databinding.FragmentLoginScreenBinding
+import com.muratcanapps.mvvm_login_screen.extentions.toast
 import com.muratcanapps.mvvm_login_screen.viewmodel.LoginScreenViewModel
 
-class LoginScreenFragment : Fragment() {
+class LoginScreenFragment : BaseFragment() {
     private var loginScreenViewModel: LoginScreenViewModel? = null
     private var binding: FragmentLoginScreenBinding? = null
 
@@ -19,11 +18,23 @@ class LoginScreenFragment : Fragment() {
         super.onCreate(savedInstanceState)
         loginScreenViewModel = ViewModelProvider(this).get(LoginScreenViewModel::class.java)
         loginScreenViewModel!!.loginSuccessLiveData.observe(this,
-            Observer {
-                context?.let { it1 -> loginScreenViewModel?.showMessage(it1, it) }
+            {
+                if (it) {
+                    context?.toast("Login Successful")
+                } else {
+                    context?.toast(loginScreenViewModel!!.loginErrorLiveData.value.toString())
+                }
+            })
+        loginScreenViewModel!!.loadingLiveData.observe(this,
+            {
+                if (!it) {
+                    binding?.loadingBar?.visibility = View.GONE
+                    binding?.loginButton?.isEnabled = true
+                }
             })
     }
-    override fun onCreateView(
+
+    override fun provideFragmentView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -33,7 +44,13 @@ class LoginScreenFragment : Fragment() {
         binding?.loginButton?.setOnClickListener {
             val email = binding?.emailInputField?.text.toString()
             val password = binding?.passwordInputField?.text.toString()
-            loginScreenViewModel?.login(context!!, email, password)
+            binding?.loadingBar?.visibility = View.VISIBLE
+            binding?.loginButton?.isEnabled = false
+            if (isConnected) {
+                loginScreenViewModel?.login(email, password)
+            } else {
+                context?.toast("Internet Connection Problem")
+            }
         }
         return view
     }
