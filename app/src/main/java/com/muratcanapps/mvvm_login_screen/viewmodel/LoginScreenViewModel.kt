@@ -5,6 +5,7 @@ import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import com.google.gson.Gson
+import com.muratcanapps.mvvm_login_screen.model.SignInWithEmailError
 import com.muratcanapps.mvvm_login_screen.model.SignInWithEmailRequest
 import com.muratcanapps.mvvm_login_screen.model.SignInWithEmailResponse
 import com.muratcanapps.mvvm_login_screen.network.LoginService
@@ -35,12 +36,12 @@ class LoginScreenViewModel(application: Application) : AndroidViewModel(applicat
 
         val loginService =
             ServiceGenerator.createService(LoginService::class.java, username, password)
-        val call: Call<Any> =
+        val call: Call<Any?> =
             loginService.loginWithEmail(SignInWithEmailRequest(username, password))
 
-        call.enqueue(object : Callback<Any> {
+        call.enqueue(object : Callback<Any?> {
             override fun onResponse(
-                call: Call<Any>,
+                call: Call<Any?>,
                 response: Response<Any?>
             ) {
 
@@ -51,16 +52,16 @@ class LoginScreenViewModel(application: Application) : AndroidViewModel(applicat
                     Log.d("responseBu", successfulResponse.toString())
                 } else {
                     transmitResponseToView(false,"Email or Password Wrong")
-                    /*
+
                     val gsonVal = Gson().toJson(response.errorBody())
                     val deGsonVal = Gson().fromJson(gsonVal, SignInWithEmailError::class.java)
                     Log.d("responseBu", deGsonVal.message)
 
-                     */
+
                 }
             }
             // email hatası , password hatası
-            override fun onFailure(call: Call<Any>, t: Throwable) {
+            override fun onFailure(call: Call<Any?>, t: Throwable) {
                 transmitResponseToView(false, "API endpoint can't be reached")
             }
         })
