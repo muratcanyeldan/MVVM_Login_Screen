@@ -11,18 +11,24 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4e844597-356a-4703-bb7f-932aaf0445d7" name="Default Changelist" comment="initial Commit">
+    <list default="true" id="4e844597-356a-4703-bb7f-932aaf0445d7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_arch_core_core_testing_2_1_0_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/test/java/com/muratcanapps/mvvm_login_screen/RxImmediateSchedulerRule.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/app/MVVM_Login_Screen.app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/MVVM_Login_Screen.app.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/muratcanapps/mvvm_login_screen/network/ErrorUtils.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/muratcanapps/mvvm_login_screen/network/LoginService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/muratcanapps/mvvm_login_screen/network/LoginService.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/muratcanapps/mvvm_login_screen/model/Errors.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/muratcanapps/mvvm_login_screen/model/Errors.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/muratcanapps/mvvm_login_screen/network/ServiceGenerator.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/muratcanapps/mvvm_login_screen/network/ServiceGenerator.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/muratcanapps/mvvm_login_screen/viewmodel/LoginScreenViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/muratcanapps/mvvm_login_screen/viewmodel/LoginScreenViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/java/com/muratcanapps/mvvm_login_screen/UserLoginTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/com/muratcanapps/mvvm_login_screen/UserLoginTest.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[192.168.1.75:5555]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -75,8 +81,8 @@
         <option value="Kotlin Object" />
         <option value="Kotlin Interface" />
         <option value="Kotlin Data Class" />
-        <option value="Class" />
         <option value="Kotlin Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -127,7 +133,7 @@
       <recent name="C:\Users\murat\AndroidStudioProjects\MVVM_Login_Screen\app" />
     </key>
   </component>
-  <component name="RunManager" selected="Android App.app">
+  <component name="RunManager" selected="Android JUnit.UserLoginTest">
     <configuration name="EmailValidatorTest" type="AndroidJUnit" factoryName="Android JUnit" temporary="true" nameIsGenerated="true">
       <module name="MVVM_Login_Screen.app" />
       <shortenClasspath name="MANIFEST" />
@@ -140,6 +146,46 @@
       <option name="PACKAGE_NAME" value="com.muratcanapps.mvvm_login_screen" />
       <option name="MAIN_CLASS_NAME" value="com.muratcanapps.mvvm_login_screen.EmailValidatorTest" />
       <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserLoginTest" type="AndroidJUnit" factoryName="Android JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MVVM_Login_Screen.app" />
+      <shortenClasspath name="MANIFEST" />
+      <useClassPathOnly />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.muratcanapps.mvvm_login_screen.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.muratcanapps.mvvm_login_screen" />
+      <option name="MAIN_CLASS_NAME" value="com.muratcanapps.mvvm_login_screen.UserLoginTest" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserLoginTest.User login when user enter correct email and password return true" type="AndroidJUnit" factoryName="Android JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MVVM_Login_Screen.app" />
+      <shortenClasspath name="MANIFEST" />
+      <useClassPathOnly />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.muratcanapps.mvvm_login_screen.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.muratcanapps.mvvm_login_screen" />
+      <option name="MAIN_CLASS_NAME" value="com.muratcanapps.mvvm_login_screen.UserLoginTest" />
+      <option name="METHOD_NAME" value="User login when user enter correct email and password return true" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <method v="2">
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
@@ -228,19 +274,17 @@
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MVVM_Login_Screen:app [signingReport]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="MVVM_Login_Screen" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/app" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
         <option name="scriptParameters" />
         <option name="taskDescriptions">
           <list />
         </option>
         <option name="taskNames">
-          <list>
-            <option value="signingReport" />
-          </list>
+          <list />
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
@@ -249,9 +293,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Android JUnit.UserLoginTest" />
+        <item itemvalue="Gradle.MVVM_Login_Screen" />
+        <item itemvalue="Android JUnit.UserLoginTest.User login when user enter correct email and password return true" />
         <item itemvalue="Android JUnit.mvvm_login_screen in MVVM_Login_Screen.app" />
         <item itemvalue="Android JUnit.EmailValidatorTest" />
-        <item itemvalue="Gradle.MVVM_Login_Screen:app [signingReport]" />
       </list>
     </recent_temporary>
   </component>
@@ -357,7 +403,21 @@
       <option name="project" value="LOCAL" />
       <updated>1615896960430</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="initial Commit">
+      <created>1615899207182</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1615899207182</updated>
+    </task>
+    <task id="LOCAL-00015" summary="initial Commit">
+      <created>1615899309276</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1615899309276</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -431,11 +491,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="540" y="275" key="AndroidCreateResourceFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1614860078217" />
-    <state x="507" y="15" key="CommitChangelistDialog2" timestamp="1615896983723">
+    <state x="507" y="15" key="CommitChangelistDialog2" timestamp="1615899307611">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="199" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1615467359147" />
-    <state x="507" y="15" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1615896983723" />
+    <state x="507" y="15" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1615899307611" />
     <state width="775" height="618" key="DebuggerActiveHint" timestamp="1615899103437">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -452,26 +512,26 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="812" y="422" key="Github.ShareDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1614947377202" />
-    <state width="1876" height="279" key="GridCell.Tab.0.bottom" timestamp="1615899133375">
+    <state width="1876" height="279" key="GridCell.Tab.0.bottom" timestamp="1615993588045">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1322" height="239" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1615467167771" />
-    <state width="1876" height="279" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1615899133375" />
-    <state width="1876" height="279" key="GridCell.Tab.0.center" timestamp="1615899133374">
+    <state width="1876" height="279" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1615993588045" />
+    <state width="1876" height="279" key="GridCell.Tab.0.center" timestamp="1615993588045">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1322" height="239" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1615467167771" />
-    <state width="1876" height="279" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1615899133374" />
-    <state width="1876" height="279" key="GridCell.Tab.0.left" timestamp="1615899133374">
+    <state width="1876" height="279" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1615993588045" />
+    <state width="1876" height="279" key="GridCell.Tab.0.left" timestamp="1615993588045">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1322" height="239" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1615467167771" />
-    <state width="1876" height="279" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1615899133374" />
-    <state width="1876" height="279" key="GridCell.Tab.0.right" timestamp="1615899133375">
+    <state width="1876" height="279" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1615993588045" />
+    <state width="1876" height="279" key="GridCell.Tab.0.right" timestamp="1615993588045">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1322" height="239" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1615467167771" />
-    <state width="1876" height="279" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1615899133375" />
+    <state width="1876" height="279" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1615993588045" />
     <state width="1876" height="279" key="GridCell.Tab.1.bottom" timestamp="1615899133375">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -496,11 +556,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="648" y="142" key="VCS.ChangeListViewerDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1614947566754" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1615896963137">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1615899313197">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="393" y="177" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1615467369445" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1615896963137" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1615899313197" />
     <state x="47" y="194" width="1736" height="856" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1615459867839">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -539,12 +599,12 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/muratcanapps/mvvm_login_screen/viewmodel/LoginScreenViewModel.kt</url>
-          <line>57</line>
+          <line>56</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/muratcanapps/mvvm_login_screen/viewmodel/LoginScreenViewModel.kt</url>
-          <line>58</line>
+          <line>57</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>

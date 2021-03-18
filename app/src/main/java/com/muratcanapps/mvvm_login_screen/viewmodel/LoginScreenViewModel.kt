@@ -56,9 +56,8 @@ class LoginScreenViewModel(application: Application) : AndroidViewModel(applicat
                     val gsonVal = Gson().toJson(response.errorBody())
                     val deGsonVal = Gson().fromJson(gsonVal, SignInWithEmailError::class.java)
                     Log.d("responseBu", deGsonVal.message)
-                    
-                     */
 
+                     */
 
                 }
             }

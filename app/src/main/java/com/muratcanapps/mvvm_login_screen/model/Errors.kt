@@ -11,5 +11,4 @@ data class Errors(
 
     @SerializedName("message")
     var message : String =""
-
 )

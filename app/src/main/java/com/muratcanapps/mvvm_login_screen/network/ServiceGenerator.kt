@@ -1,6 +1,5 @@
 package com.muratcanapps.mvvm_login_screen.network
 
-import android.text.TextUtils
 import okhttp3.Credentials
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -26,7 +25,7 @@ object ServiceGenerator {
     private fun <S> createService(
         serviceClass: Class<S>, authToken: String
     ): S {
-        if (!TextUtils.isEmpty(authToken)) {
+        if (authToken.isNotEmpty()) {
             val interceptor = AuthenticationInterceptor(authToken)
             if (!httpClient.interceptors().contains(interceptor)) {
                 httpClient.addInterceptor(interceptor)
