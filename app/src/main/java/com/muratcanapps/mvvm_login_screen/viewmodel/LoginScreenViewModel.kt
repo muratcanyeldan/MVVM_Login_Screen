@@ -27,7 +27,7 @@ class LoginScreenViewModel(application: Application) : AndroidViewModel(applicat
             loginAuth(email, password)
         } else {
             setLoadingStatus(false)
-            transmitResponseToView(false,"Email or Password Format Invalid")
+            transmitResponseToView(false, "Email or Password Format Invalid")
         }
     }
 
@@ -47,21 +47,18 @@ class LoginScreenViewModel(application: Application) : AndroidViewModel(applicat
                 if (response.isSuccessful) {
                     transmitResponseToView(true)
                     val successfulResponseGson = Gson().toJson(response.body())
-                    val successfulResponse = Gson().fromJson(successfulResponseGson, SignInWithEmailResponse::class.java)
-                    Log.d("responseBu", successfulResponse.toString())
+                    val successfulResponse = Gson().fromJson(
+                        successfulResponseGson,
+                        SignInWithEmailResponse::class.java
+                    )
+                    Log.d("responseBu",successfulResponse.email)
                 } else {
-                    transmitResponseToView(false,"Email or Password Wrong")
-
-                    /*
-                    val gsonVal = Gson().toJson(response.errorBody())
-                    val deGsonVal = Gson().fromJson(gsonVal, SignInWithEmailError::class.java)
-                    Log.d("responseBu", deGsonVal.message)
-
-                     */
+                    val errorResponseFull = response.errorBody()?.string()
+                    val errorResponseMessage = errorResponseFull?.substringAfter(""""message": """")?.substringBefore("""",""")
+                    transmitResponseToView(false, errorResponseMessage)
 
                 }
             }
-            // email hatası , password hatası
             override fun onFailure(call: Call<Any?>, t: Throwable) {
                 transmitResponseToView(false, "API endpoint can't be reached")
             }
@@ -69,8 +66,8 @@ class LoginScreenViewModel(application: Application) : AndroidViewModel(applicat
         setLoadingStatus(false)
     }
 
-    private fun transmitResponseToView(status:Boolean, message:String = ""){
-        loginErrorLiveData.postValue(message)
+    private fun transmitResponseToView(status: Boolean, message: String? = ""){
+        loginErrorLiveData.postValue(message?:"")
         loginSuccessLiveData.postValue(status)
     }
 
