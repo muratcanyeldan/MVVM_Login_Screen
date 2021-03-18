@@ -13,14 +13,14 @@
   <component name="ChangeListManager">
     <list default="true" id="4e844597-356a-4703-bb7f-932aaf0445d7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/muratcanapps/mvvm_login_screen/model/SignInWithEmailError.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/muratcanapps/mvvm_login_screen/model/SignInWithEmailError.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/muratcanapps/mvvm_login_screen/model/SignInWithEmailRequest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/muratcanapps/mvvm_login_screen/model/SignInWithEmailRequest.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[192.168.1.75:5555]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -423,7 +423,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616054258310</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="initial Commit">
+      <created>1616054921843</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1616054921843</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -497,11 +504,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="540" y="275" key="AndroidCreateResourceFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1614860078217" />
-    <state x="507" y="15" key="CommitChangelistDialog2" timestamp="1616054256893">
+    <state x="507" y="15" key="CommitChangelistDialog2" timestamp="1616054920905">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="199" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1615467359147" />
-    <state x="507" y="15" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1616054256893" />
+    <state x="507" y="15" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1616054920905" />
     <state width="775" height="618" key="DebuggerActiveHint" timestamp="1616053486168">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -562,11 +569,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="648" y="142" key="VCS.ChangeListViewerDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1614947566754" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1616054262099">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1616054925952">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="393" y="177" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1615467369445" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1616054262099" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1616054925952" />
     <state x="47" y="194" width="1736" height="856" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1615459867839">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
