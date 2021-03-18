@@ -10,9 +10,7 @@ data class SignInWithEmailError(
     @SerializedName("message")
     var message: String = "",
 
-    /*
     @SerializedName("errors")
-    var errors: List<Errors>
-     */
+    var errors: Errors = Errors()
 
     )
