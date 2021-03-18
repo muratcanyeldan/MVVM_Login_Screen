@@ -12,7 +12,7 @@ import androidx.fragment.app.Fragment
 import kotlin.properties.Delegates
 
 
-abstract class BaseFragment : Fragment(){
+abstract class BaseFragment : Fragment() {
     var isConnected by Delegates.notNull<Boolean>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

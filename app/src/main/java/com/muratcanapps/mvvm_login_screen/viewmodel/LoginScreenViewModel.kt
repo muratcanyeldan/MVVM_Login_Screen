@@ -51,14 +51,16 @@ class LoginScreenViewModel(application: Application) : AndroidViewModel(applicat
                         successfulResponseGson,
                         SignInWithEmailResponse::class.java
                     )
-                    Log.d("responseBu",successfulResponse.email)
+                    Log.d("responseBu", successfulResponse.email)
                 } else {
                     val errorResponseFull = response.errorBody()?.string()
-                    val errorResponseMessage = errorResponseFull?.substringAfter(""""message": """")?.substringBefore("""",""")
+                    val errorResponseMessage = errorResponseFull?.substringAfter(""""message": """")
+                        ?.substringBefore("""",""")
                     transmitResponseToView(false, errorResponseMessage)
 
                 }
             }
+
             override fun onFailure(call: Call<Any?>, t: Throwable) {
                 transmitResponseToView(false, "API endpoint can't be reached")
             }
@@ -66,12 +68,12 @@ class LoginScreenViewModel(application: Application) : AndroidViewModel(applicat
         setLoadingStatus(false)
     }
 
-    private fun transmitResponseToView(status: Boolean, message: String? = ""){
-        loginErrorLiveData.postValue(message?:"")
+    private fun transmitResponseToView(status: Boolean, message: String? = "") {
+        loginErrorLiveData.postValue(message ?: "")
         loginSuccessLiveData.postValue(status)
     }
 
-    private fun setLoadingStatus(status: Boolean){
+    private fun setLoadingStatus(status: Boolean) {
         loadingLiveData.postValue(status)
     }
 }

@@ -13,4 +13,4 @@ data class SignInWithEmailError(
     @SerializedName("errors")
     var errors: Errors = Errors()
 
-    )
+)
