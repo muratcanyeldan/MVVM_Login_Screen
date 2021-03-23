@@ -10,5 +10,5 @@ const val postValue: String = "v1/accounts:signInWithPassword?key=" + Constants.
 interface LoginService {
 
     @POST(postValue)
-    fun loginWithEmail(@Body request: SignInWithEmailRequest): Call<Any?>
+    fun loginWithEmail(@Body request: SignInWithEmailRequest): Call<Any?> //rx Çevrimi
 }

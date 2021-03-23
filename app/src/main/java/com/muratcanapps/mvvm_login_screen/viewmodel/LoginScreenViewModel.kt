@@ -20,19 +20,24 @@ class LoginScreenViewModel(application: Application) : AndroidViewModel(applicat
     val loginSuccessLiveData: MutableLiveData<Boolean> = MutableLiveData()
     val loginErrorLiveData: MutableLiveData<String> = MutableLiveData()
     val loadingLiveData: MutableLiveData<Boolean> = MutableLiveData()
+    var account: SignInWithEmailResponse? = null
 
     fun login(email: String, password: String) {
         setLoadingStatus(true)
         if (isEmailValid(email) && isPasswordValid(password)) {
-            loginAuth(email, password)
+            account = loginAuth(email, password)
         } else {
             setLoadingStatus(false)
-            transmitResponseToView(false, "Email or Password Format Invalid")
+            transmitResponseToView(
+                false,
+                "Email or Password Format Invalid"
+            ) //string resource kullan
         }
     }
 
-    fun loginAuth(username: String, password: String) {
+    fun loginAuth(username: String, password: String): SignInWithEmailResponse? {
 
+        var loggedInAccount: SignInWithEmailResponse? = null
         val loginService =
             ServiceGenerator.createService(LoginService::class.java, username, password)
         val call: Call<Any?> =
@@ -51,13 +56,13 @@ class LoginScreenViewModel(application: Application) : AndroidViewModel(applicat
                         successfulResponseGson,
                         SignInWithEmailResponse::class.java
                     )
+                    loggedInAccount = successfulResponse
                     Log.d("responseBu", successfulResponse.email)
                 } else {
                     val errorResponseFull = response.errorBody()?.string()
                     val errorResponseMessage = errorResponseFull?.substringAfter(""""message": """")
                         ?.substringBefore("""",""")
                     transmitResponseToView(false, errorResponseMessage)
-
                 }
             }
 
@@ -66,6 +71,7 @@ class LoginScreenViewModel(application: Application) : AndroidViewModel(applicat
             }
         })
         setLoadingStatus(false)
+        return loggedInAccount
     }
 
     private fun transmitResponseToView(status: Boolean, message: String? = "") {
