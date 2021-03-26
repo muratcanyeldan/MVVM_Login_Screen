@@ -35,13 +35,13 @@ class LoginScreenViewModel(application: Application) : AndroidViewModel(applicat
         }
     }
 
-    fun loginAuth(username: String, password: String): SignInWithEmailResponse? {
+    fun loginAuth(email: String, password: String): SignInWithEmailResponse? {
 
         var loggedInAccount: SignInWithEmailResponse? = null
         val loginService =
-            ServiceGenerator.createService(LoginService::class.java, username, password)
+            ServiceGenerator.createService(LoginService::class.java, email, password)
         val call: Call<Any?> =
-            loginService.loginWithEmail(SignInWithEmailRequest(username, password))
+            loginService.loginWithEmail(SignInWithEmailRequest(email, password))
 
         call.enqueue(object : Callback<Any?> {
             override fun onResponse(
