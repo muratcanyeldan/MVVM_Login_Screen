@@ -12,7 +12,8 @@ import com.muratcanapps.mvvm_login_screen.viewmodel.LoginScreenViewModel
 
 class LoginScreenFragment : BaseFragment() {
     private var loginScreenViewModel: LoginScreenViewModel? = null
-    private var binding: FragmentLoginScreenBinding? = null
+    private var _binding: FragmentLoginScreenBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,8 +29,8 @@ class LoginScreenFragment : BaseFragment() {
         loginScreenViewModel!!.loadingLiveData.observe(this,
             {
                 if (!it) {
-                    binding?.loadingBar?.visibility = View.GONE
-                    binding?.loginButton?.isEnabled = true
+                    binding.loadingBar.visibility = View.GONE
+                    binding.loginButton.isEnabled = true
                 }
             })
     }
@@ -40,12 +41,12 @@ class LoginScreenFragment : BaseFragment() {
         savedInstanceState: Bundle?
     ): View {
         val view: View = inflater.inflate(R.layout.fragment_login_screen, container, false)
-        binding = FragmentLoginScreenBinding.bind(view)
-        binding?.loginButton?.setOnClickListener {
-            val email = binding?.emailInputField?.text.toString()
-            val password = binding?.passwordInputField?.text.toString()
-            binding?.loadingBar?.visibility = View.VISIBLE
-            binding?.loginButton?.isEnabled = false
+        _binding = FragmentLoginScreenBinding.bind(view)
+        binding.loginButton.setOnClickListener {
+            val email = binding.emailInputField.text.toString()
+            val password = binding.passwordInputField.text.toString()
+            binding.loadingBar.visibility = View.VISIBLE
+            binding.loginButton.isEnabled = false
             if (isConnected) {
                 loginScreenViewModel?.login(email, password)
             } else {
@@ -53,5 +54,10 @@ class LoginScreenFragment : BaseFragment() {
             }
         }
         return view
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
