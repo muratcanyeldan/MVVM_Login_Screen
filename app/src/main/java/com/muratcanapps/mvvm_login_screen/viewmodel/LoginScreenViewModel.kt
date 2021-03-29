@@ -31,9 +31,10 @@ class LoginScreenViewModel(application: Application) : AndroidViewModel(applicat
             transmitResponseToView(
                 false,
                 "Email or Password Format Invalid"
-            ) //string resource kullan
+            )
         }
     }
+    //string resource kullan
 
     fun loginAuth(email: String, password: String): SignInWithEmailResponse? {
 
