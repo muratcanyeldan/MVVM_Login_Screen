@@ -14,28 +14,7 @@ import org.mockito.Mockito.`when`
 
 
 class UserLoginTest {
-
-    /*@ClassRule
-    var schedulers = RxImmediateSchedulerRule()
-
-     */
-
-    /*
-    companion object {
-
-        //@ClassRule
-        @get: ClassRule val schedulers = RxImmediateSchedulerRule()
-    }
-
-     */
-
-
-    /*
-    @Mock val request : SignInWithEmailRequest = SignInWithEmailRequest(email,password)
-    @Mock val liveData = MutableLiveData<SignInWithEmailResponse>()
-
-    @Mock val loginScreenViewModel = LoginScreenViewModel(Application())
-    */
+    
     @Mock
     private lateinit var loginScreenViewModel: LoginScreenViewModel
 
@@ -47,15 +26,11 @@ class UserLoginTest {
 
     @Before
     fun setUp() {
-        //RxAndroidPlugins.setInitMainThreadSchedulerHandler { scheduler: Callable<Scheduler?>? -> Schedulers.trampoline() }
-
-        //loginScreenViewModel = LoginScreenViewModel(application)
         loginScreenViewModel = Mockito.spy(LoginScreenViewModel(application));
-        //`when`(loginScreenViewModel.loginSuccessLiveData).thenReturn(MutableLiveData<Boolean>())
     }
 
     @Test
-    fun `Validation fail test email empty password empty`(){
+    fun `Validation fail test email empty password empty`() {
         val email = ""
         val password = ""
 
@@ -65,7 +40,7 @@ class UserLoginTest {
     }
 
     @Test
-    fun `Validation fail test email empty`(){
+    fun `Validation fail test email empty`() {
         val email = ""
         val password = "123456"
 
@@ -75,7 +50,7 @@ class UserLoginTest {
     }
 
     @Test
-    fun `Validation fail test password empty`(){
+    fun `Validation fail test password empty`() {
         val email = "muratcan_yeldan@hotmail.com"
         val password = ""
 
@@ -85,7 +60,7 @@ class UserLoginTest {
     }
 
     @Test
-    fun `Validation fail test email not valid password correct`(){
+    fun `Validation fail test email not valid password correct`() {
         val email = "muratcanyeldanhotmail.com"
         val password = "123456"
 
@@ -95,7 +70,7 @@ class UserLoginTest {
     }
 
     @Test
-    fun `Validation fail test email not valid password too short`(){
+    fun `Validation fail test email not valid password too short`() {
         val email = "muratcanyeldanhotmail.com"
         val password = "12345"
 
@@ -105,7 +80,7 @@ class UserLoginTest {
     }
 
     @Test
-    fun `Validation fail test email not valid password empty`(){
+    fun `Validation fail test email not valid password empty`() {
         val email = "muratcanyeldanhotmail.com"
         val password = ""
 
@@ -115,7 +90,7 @@ class UserLoginTest {
     }
 
     @Test
-    fun `Validation fail test password too short`(){
+    fun `Validation fail test password too short`() {
         val email = "muratcan_yeldan@hotmail.com"
         val password = "1234"
 
@@ -127,7 +102,7 @@ class UserLoginTest {
     @Test
     fun `Validation success test`() {
         val email = "muratcan_yeldan@hotmail.com"
-        val password = "12356"
+        val password = "123456"
 
         val account = SignInWithEmailResponse(
             "identitytoolkit#VerifyPasswordResponse",
@@ -139,14 +114,11 @@ class UserLoginTest {
             "AOvuKvQ9buoqfkT5Oy-LcrllqGSg5xdEdNEA9NSakp_cB-OhQapcB3n3nTH-BH2zD0IyHgr_CpjJiYgmjMFsrr_xOmkFC8vPTv8AGBWbrM_n31j4_XeAQ07Skt4TJg_Uz1j28HeYlSl1qa7bF6u6J8XYB9bAQV2lNUEFR6hDRQrlgBcAuYHYJiTLlXzDiydUmw5nv9XvINUoT5SqyywcTYRxqNfciwQgng",
             "3600"
         )
-        `when`(loginScreenViewModel.loginAuth(email,password)).thenReturn(account)
+        `when`(loginScreenViewModel.loginAuth(email, password)).thenReturn(account)
         loginScreenViewModel.login(email, password)
-        //assertThat(Mockito.`when`(loginScreenViewModel.login(email, password)).thenReturn(account))
 
-        //assertThat(Mockito.`when`(loginScreenViewModel.loginAuth(email, password)).thenReturn(testSingle))
         assertThat(loginScreenViewModel.loginSuccessLiveData.value == true)
         assertThat(loginScreenViewModel.loadingLiveData.value == false)
-        //val testSingle = Single.just(account)
 
     }
 
